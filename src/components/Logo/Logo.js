@@ -1,16 +1,14 @@
+import React from 'react';
 import Link from 'next/link';
+
 import { BLOG_TITLE } from '@/constants';
 
 import styles from './Logo.module.css';
 
-export default function Logo({
-  mobileAlignment = 'left',
-}: {
-  mobileAlignment?: string;
-}) {
+function Logo({ mobileAlignment = 'left' }) {
   return (
     <Link
-      href='/'
+      href="/"
       className={styles.wrapper}
       data-mobile-alignment={mobileAlignment}
     >
@@ -18,3 +16,5 @@ export default function Logo({
     </Link>
   );
 }
+
+export default Logo;
