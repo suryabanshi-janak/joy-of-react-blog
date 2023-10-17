@@ -5,6 +5,7 @@ import './styles.css';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { DARK_TOKENS, LIGHT_TOKENS } from '@/constants';
 
 const mainFont = Work_Sans({
   subsets: ['latin'],
@@ -16,7 +17,7 @@ const monoFont = Spline_Sans_Mono({
   subsets: ['latin'],
   display: 'fallback',
   weight: 'variable',
-  variable: '--font-family',
+  variable: '--font-family-mono',
 });
 
 export const metadata: Metadata = {
@@ -32,8 +33,14 @@ export default function RootLayout({
   const theme = 'light';
 
   return (
-    <html lang='en'>
-      <body className={clsx(mainFont.className, monoFont.className)}>
+    <html
+      lang='en'
+      className={clsx(mainFont.className, monoFont.className)}
+      data-color-theme={theme}
+      // @ts-expect-error
+      style={theme === 'light' ? LIGHT_TOKENS : DARK_TOKENS}
+    >
+      <body>
         <Header theme={theme} />
         <main>{children}</main>
         <Footer />
