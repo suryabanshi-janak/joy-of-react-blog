@@ -29,10 +29,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const theme = 'light';
+
   return (
     <html lang='en'>
       <body className={clsx(mainFont.className, monoFont.className)}>
-        <Header />
+        <Header theme={theme} />
         <main>{children}</main>
         <Footer />
       </body>
